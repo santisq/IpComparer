@@ -1,0 +1,2 @@
+Performing the operation "Copy File" on target "Item: D:\Zen\Documents\Scripts\test\test2.txt Destination: D:\Zen\Documents\Scripts\test\test.txt".
+Performing the operation "Copy File" on target "Item: D:\Zen\Documents\Scripts\test\test2.txt Destination: D:\Zen\Documents\Scripts\test\test3.txt".
