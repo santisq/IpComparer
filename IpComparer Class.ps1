@@ -20,6 +20,3 @@ class IpComparer : System.IComparable {
         return 0
     }
 }
-
-$a = [IpComparer] '194.225.0.0'
-[ipcomparer]::new
