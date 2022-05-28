@@ -21,8 +21,8 @@ class IpComparer : IComparable {
     }
 
     hidden static [int] CompareTo ([IpComparer] $LHS, [IpComparer] $RHS) {
-        $x = $LHS.IPAddress.GetAddressBytes()
-        $y = $RHS.IPAddress.GetAddressBytes()
+        $x = $LHS.IpAddress.GetAddressBytes()
+        $y = $RHS.IpAddress.GetAddressBytes()
 
         for($i = 0; $i -lt 4; $i++) {
             if($ne = $x[$i].CompareTo($y[$i])) {
