@@ -1,13 +1,18 @@
-cls
-Import-Module activedirectory
-$count = 0
-$include_department = @("Sales & Admin - All ","Field - Support", "HKLM - All", "SOD - 1", "Home - 1080")
-$include_title = @("Client Manager", "Local Sales", "Outside Sales", "Region Manager", "Deployment Manager")
-$exclude_title = @("- ")
-$users = Get-ADUser -filter * -properties Department, Title, SamAccountName |
-    Where-Object {
-        ($_.Department -match ('(' + [string]::Join(')|(', $include_department) + ')')) -and
-        ($_.Title -match ('(' + [string]::Join(')|(', $include_title) + ')')) -and
-        ($_.Department -notcontains "- ")
+function CompareTo ([ipaddress] $Ip1, [ipaddress] $Ip2) {
+    $lhs = $Ip1.GetAddressBytes()
+    $rhs = $Ip2.GetAddressBytes()
+
+    for($i = 0; $i -lt 4; $i++) {
+        if($lhs[$i] -eq $rhs[$i]) {
+            continue
+        }
+        if($lhs[$i] -lt $rhs[$i]) {
+            return -1
+        }
+
+        return 1
     }
-$users | Out-File -FilePath C:\it\file.txt
+}
+
+CompareTo '85.185.240.128' '195.146.40.0'
+CompareTo '195.146.40.0' '85.185.240.128'
