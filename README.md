@@ -18,7 +18,7 @@ Compatible with Windows PowerShell 5.1 and PowerShell Core.
 
 | Name | Description |
 | ---- | ----------- |
-| IpAddress | Instance of [`IpAddress`](https://docs.microsoft.com/en-us/dotnet/api/system.net.ipaddress?view=net-6.0) to be compared.
+| `IpAddress` | Instance of [`IpAddress`](https://docs.microsoft.com/en-us/dotnet/api/system.net.ipaddress?view=net-6.0) to be compared.
 
 ## Examples
 
