@@ -31,6 +31,19 @@ Compatible with Windows PowerShell 5.1 and PowerShell Core.
 [IpComparer] '194.225.15.255' -gt '194.225.0.0' # => True
 ```
 
+- Testing for Equality
+
+```powershell
+[IpComparer] '194.225.15.25' -ge '194.225.15.25' # => True
+'194.225.15.25' -le [IpComparer] '194.225.15.25' # => True
+
+$hs = [Collections.Generic.HashSet[IpComparer]]::new()
+$hs.Add('194.225.0.0') # => True
+$hs.Add('194.225.0.0') # => False
+
+([IpComparer] '194.225.15.255').Equals('194.225.15.255') # => True
+```
+
 - Sorting
 
 ```powershell
