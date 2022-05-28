@@ -10,7 +10,7 @@ Compatible with Windows PowerShell 5.1 and PowerShell Core.
 
 ## Constructors
 
-| <div style="width:500px">OverloadDefinitions</div> | Description |
+| OverloadDefinitions &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Description |
 | ---- | ---- |
 | `IpComparer new(string IpAddress)` | Initializes a new instance of the `IpComparer` class with the address specified as a string.
 
