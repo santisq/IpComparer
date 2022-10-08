@@ -2,7 +2,7 @@
 
 ## Description
 
-Simple [__PowerShell Class__](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes) that implements the [`IComparable`](https://docs.microsoft.com/en-us/dotnet/api/system.icomparable?view=net-6.0) and [IEquatable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=net-7.0). Allows for comparison and sorting of IP Addresses.
+Simple [__PowerShell Class__](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes) that implements the [`IComparable`](https://docs.microsoft.com/en-us/dotnet/api/system.icomparable?view=net-6.0) and [`IEquatable<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=net-7.0). Allows for comparison and sorting of IP Addresses.
 
 ## Compatibility
 
