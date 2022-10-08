@@ -1,26 +1,31 @@
-class IpComparer : IComparable {
+class IpComparer : IComparable, IEquatable[object] {
     [ipaddress] $IpAddress
 
-    IpComparer ([string] $IpAddress) {
-        $this.IPAddress = $IpAddress
-    }
-
-    [int] GetHashCode() {
-        return $this.IpAddress.GetHashCode()
+    IpComparer([ipaddress] $IpAddress) {
+        $this.IpAddress = $IpAddress
     }
 
     [string] ToString() {
         return $this.IpAddress.ToString()
     }
 
-    hidden static [bool] Equals ([object] $LHS, [object] $RHS) {
-        return $LHS.IpAddress -eq $RHS.IpAddress
-    }
-    [bool] Equals ([object] $Ip) {
-        return [IpComparer]::Equals([IpComparer] $this, [IpComparer] $Ip)
+    [int] GetHashCode() {
+        return $this.IpAddress.GetHashCode()
     }
 
-    hidden static [int] CompareTo ([IpComparer] $LHS, [IpComparer] $RHS) {
+    [bool] Equals([object] $IpAddress) {
+        return [IpComparer]::Equals($this, [IpComparer] $IpAddress)
+    }
+
+    hidden static [bool] Equals([IpComparer] $LHS, [IpComparer] $RHS) {
+        return $LHS.IpAddress.Equals($RHS.IpAddress)
+    }
+
+    [int] CompareTo([object] $IpAddress) {
+        return [IpComparer]::CompareTo($this, [IpComparer] $IpAddress)
+    }
+
+    hidden static [int] CompareTo([IpComparer] $LHS, [IpComparer] $RHS) {
         $x = $LHS.IpAddress.GetAddressBytes()
         $y = $RHS.IpAddress.GetAddressBytes()
 
@@ -31,10 +36,8 @@ class IpComparer : IComparable {
         }
         return 0
     }
-    [int] CompareTo ([object] $Ip) {
-        if($null -eq $Ip) {
-            return 1
-        }
-        return [IpComparer]::CompareTo([IpComparer] $this, [IpComparer] $Ip)
+
+    hidden static [IpComparer] op_Explicit([string] $IpAddress) {
+        return [IpComparer]::new([ipaddress] $IpAddress)
     }
 }
